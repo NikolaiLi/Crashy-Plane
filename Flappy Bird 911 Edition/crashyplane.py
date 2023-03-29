@@ -6,8 +6,6 @@ from random import randint, choice
 
 pygame.init()
 
-print("hej")
-
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 
