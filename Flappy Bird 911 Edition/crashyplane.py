@@ -40,15 +40,15 @@ running = True
 clock = pygame.time.Clock()
 
 def death():
-    
     deathScreen = True
-
-    
+    spiller.velocity = 0
+    objekt.velocity = 0
 
 # -------- Game Loop -----------
 while running:
     currentTimer = pygame.time.get_ticks()
     score = int(currentTimer/720)
+    
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT: 
               running = False 
@@ -64,27 +64,31 @@ while running:
         spiller.moveDown()
     objekt.moveLeft()
 
-    if spiller.rect.colliderect(objekt.rect):
-        deathScreen()
     # Her kalder PyGame alle spil-objekter update()-metode
     all_sprites_list.update()
 
     # --- View
     screen.fill(BLACK)
 
-    if deathScreen == True: 
-        font = pygame.font.Font(None, 74)
-        text = font.render(str(dead), 1, WHITE)
-        screen.blit(text, (325,20))
-
     # Her tegnes alle spil-objekter på skærmen screen
     all_sprites_list.draw(screen) 
- 
+
+    if spiller.rect.colliderect(objekt.rect):
+        deathScreen()
+        print("din far er sej")
+
     #Her tegnes scoren
     font = pygame.font.Font(None, 74)
     text = font.render(str(score), 1, WHITE)
-    screen.blit(text, (325,10))
+    screen.blit(text, (375,10))
  
+    def deathScreen():
+        font = pygame.font.Font(None, 74)
+        text = font.render(str(dead), 1, WHITE)
+        screen.blit(text, (400,250))
+        text_rect = text.get_rect()
+        death()
+
     # --- Flipper skærmen
     pygame.display.flip()
      
