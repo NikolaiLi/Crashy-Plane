@@ -65,19 +65,18 @@ while running:
     objekt.moveLeft()
 
     if spiller.rect.colliderect(objekt.rect):
-        print("heeej")
-        death()
+        deathScreen()
     # Her kalder PyGame alle spil-objekter update()-metode
     all_sprites_list.update()
 
     # --- View
     screen.fill(BLACK)
 
-    if deathScreen == True:
-        print("Death")
+    if deathScreen == True: 
         font = pygame.font.Font(None, 74)
         text = font.render(str(dead), 1, WHITE)
-        screen.blit(text, (325,20)) 
+        screen.blit(text, (325,20))
+
     # Her tegnes alle spil-objekter på skærmen screen
     all_sprites_list.draw(screen) 
  
