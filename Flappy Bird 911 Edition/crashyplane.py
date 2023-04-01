@@ -48,7 +48,7 @@ def death():
 while running:
     currentTimer = pygame.time.get_ticks()
     score = int(currentTimer/720)
-    
+
     for event in pygame.event.get(): 
         if event.type == pygame.QUIT: 
               running = False 
@@ -75,7 +75,6 @@ while running:
 
     if spiller.rect.colliderect(objekt.rect):
         deathScreen()
-        print("din far er sej")
 
     #Her tegnes scoren
     font = pygame.font.Font(None, 74)
