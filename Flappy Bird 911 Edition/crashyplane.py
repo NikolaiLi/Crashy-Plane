@@ -26,7 +26,7 @@ spiller.rect.y = 200
 
 
 objekt = Towers(70, 300, screen)
-objekt.rect.x = 300
+objekt.rect.x = 700
 objekt.rect.y = 300
 
 # Denne liste skal indeholde alle spil-objekter
@@ -57,12 +57,13 @@ while running:
                      running = False
 
     # --- Controller
-    keys = pygame.key.get_pressed()
+    """keys = pygame.key.get_pressed()
     if keys[pygame.K_SPACE]:
         spiller.moveUp()
     else:
-        spiller.moveDown()
+        spiller.moveDown()"""
     objekt.moveLeft()
+    spiller.update()
 
     # Her kalder PyGame alle spil-objekter update()-metode
     all_sprites_list.update()
